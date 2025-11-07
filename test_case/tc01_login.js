@@ -31,7 +31,7 @@ describe('SAUCEDEMO', function () {
 
     it('Valid Login', async function () {
         const loginPage = new LoginPage(driver);
-        await loginPage.login("standard_user", "secret_sauce");
+        await loginPage.login("standard_user", "secret_sdasdasauce");
 
         const isDisplayed = await loginPage.assertProdukDisplayed();
         assert.strictEqual(isDisplayed, true, "Berhasil menampilakan halaman produk");
