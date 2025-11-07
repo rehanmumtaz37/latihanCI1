@@ -34,8 +34,9 @@ jobs:
       - name: Run Mocha tests
         run: npm run tc_all
 
-      - name: Upload Mochawesome report
-        uses: actions/upload-artifact@v4
-        with:
-          name: mochawesome-report
-          path: mochawesome-report/
+      - name: Mochawesome report
+        run: start mochawesome-report/mochawesome.html
+        # uses: actions/upload-artifact@v4
+        # with:
+          # name: mochawesome-report
+          # path: mochawesome-report/
