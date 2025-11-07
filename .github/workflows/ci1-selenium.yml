@@ -1,5 +1,3 @@
-name: CI - Selenium Tests
-
 #CI
 on:
   push:
@@ -38,4 +36,3 @@ jobs:
         run: |
           export CHROME_BIN=$(which google-chrome)
           npm run tc_all
-
