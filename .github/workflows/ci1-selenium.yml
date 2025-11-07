@@ -33,4 +33,9 @@ jobs:
       # Step 5: Run Mocha tests
       - name: Run Mocha tests
         run: npm run tc_all
-    
+
+      - name: Upload Mochawesome report
+        uses: actions/upload-artifact@v3
+        with:
+          name: mochawesome-report
+          path: mochawesome-report/
