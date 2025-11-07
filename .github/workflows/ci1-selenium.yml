@@ -1,8 +1,15 @@
 # CI - Selenium + Mocha + Mochawesome
 on:
   push:
-    branches: [Action]
-  workflow_dispatch:
+    branches: [ "main" ]
+   # paths:
+     #- "test_case/tc01.login.js" / ini contoh kalo spesifikasi tc yg abis update
+     #- "test_case/**/*.js" / klo ini semua file.js yg ada di dalam folder test_case
+  pull_request:
+    branches: [ "main" ]
+   # paths: 
+        #- "test_case/tc01.login.js" / ini contoh kalo spesifikasi tc yg abis update
+        #- "test_case/**/*.js" / klo ini semua file.js yg ada di dalam folder test_case
 
 jobs:
   test:
