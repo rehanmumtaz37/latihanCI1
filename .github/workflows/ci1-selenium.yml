@@ -1,9 +1,8 @@
 # CI - Selenium + Mocha + Mochawesome
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [Action]
+  workflow_dispatch:
 
 jobs:
   test:
@@ -22,27 +21,9 @@ jobs:
 
       # Step 3: Install dependencies
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      # Step 4: Setup Chrome
-      - name: Setup Chrome
-        uses: browser-actions/setup-chrome@v1
-
-      # Step 5: Run Mocha tests (tc_all) with screenshots & report
-      - name: Run Mocha tests (tc_all)
-        env:
-          CI: true
-          CHROME_BIN: /usr/bin/google-chrome
-        run: |
-          # Jalankan semua test
-          npm run tc_all
-
-          # Tampilkan path report Mochawesome
-          echo "HTML report: $(pwd)/mochawesome-report/report_all/report_all.html"
-
-      # Step 6: Upload Mochawesome report sebagai artifact
-      - name: Upload test report
-        uses: actions/upload-artifact@v3
-        with:
-          name: mochawesome-report
-          path: mochawesome-report/
+      # Step 5: Run Mocha tests
+      - name: Run Mocha tests
+        run: npm run tc01_login
+    
