@@ -32,5 +32,5 @@ jobs:
 
       # Step 5: Run Mocha tests
       - name: Run Mocha tests
-        run: npm run tc01_login
+        run: npm run tc_all
     

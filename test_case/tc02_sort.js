@@ -11,7 +11,9 @@ describe('SAUCEDEMO', function () {
     let driver;
     let options = new chrome.Options();
     options.addArguments('--incognito');
-    // options.addArguments('--headless');
+    options.addArguments('--headless=new');
+    options.addArguments('--no-sandbox');
+    options.addArguments('--disable-dev-shm-usage');
     options.addArguments('--log-level=3'); // suppress warning/error logs buat ngilangin eror
 
     beforeEach(async function () {

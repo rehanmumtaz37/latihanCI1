@@ -3,6 +3,7 @@ import assert from 'assert';
 import chrome from 'selenium-webdriver/chrome.js';
 import LoginPage from '../pages/pages_login.js';
 import fs from 'fs';
+import path from 'path';
 
 describe('SAUCEDEMO', function () {
     this.timeout(50000);
@@ -31,24 +32,25 @@ describe('SAUCEDEMO', function () {
 
     it('Valid Login', async function () {
         const loginPage = new LoginPage(driver);
-        await loginPage.login("standard_user", "secret_sdasdasauce");
+        await loginPage.login("standard_user", "secret_sauce");
 
         const isDisplayed = await loginPage.assertProdukDisplayed();
         assert.strictEqual(isDisplayed, true, "Berhasil menampilakan halaman produk");
 
         let full_ss = await driver.takeScreenshot();
-        fs.writeFileSync('report_ss/login/valid login.png', Buffer.from(full_ss, 'base64'));
+        fs.writeFileSync('report_ss/login/valid_login.png', Buffer.from(full_ss, 'base64'));
+
     });
 
     it("login with Invalid Username", async function () {
         const loginPage = new LoginPage(driver);
-        await loginPage.login("invalid_user", "secret_sauce");
+        await loginPage.login("invalid_username", "secret_sauce");
 
         const eror = await loginPage.getErrorMessage();
         assert.strictEqual(eror, "Epic sadface: Username and password do not match any user in this service");
 
         let full_ss = await driver.takeScreenshot();
-        fs.writeFileSync('report_ss/login/invalid username.png', Buffer.from(full_ss, 'base64'));
+        fs.writeFileSync('report_ss/login/invalid_username.png', Buffer.from(full_ss, 'base64'));
     });
 
     it("login with Invalid Password", async function () {
@@ -59,7 +61,7 @@ describe('SAUCEDEMO', function () {
         assert.strictEqual(eror, "Epic sadface: Username and password do not match any user in this service");
 
         let full_ss = await driver.takeScreenshot();
-        fs.writeFileSync('report_ss/login/invalid password.png', Buffer.from(full_ss, 'base64'));
+        fs.writeFileSync('report_ss/login/invalid_password.png', Buffer.from(full_ss, 'base64'));
     });
 
     it("login with Empty Username and valid Password", async function () {
@@ -70,7 +72,7 @@ describe('SAUCEDEMO', function () {
         assert.strictEqual(eror, "Epic sadface: Username is required");
 
         let full_ss = await driver.takeScreenshot();
-        fs.writeFileSync('report_ss/login/empty username.png', Buffer.from(full_ss, 'base64'));
+        fs.writeFileSync('report_ss/login/empty_username.png', Buffer.from(full_ss, 'base64'));
     });
 
     it("login with valid Username and Empty Password", async function () {
@@ -81,7 +83,7 @@ describe('SAUCEDEMO', function () {
         assert.strictEqual(eror, "Epic sadface: Password is required");
 
         let full_ss = await driver.takeScreenshot();
-        fs.writeFileSync('report_ss/login/empty password.png', Buffer.from(full_ss, 'base64'));
+        fs.writeFileSync('report_ss/login/empty_password.png', Buffer.from(full_ss, 'base64'));
     });
 
     it("Login with locked out user", async function () {
@@ -92,7 +94,7 @@ describe('SAUCEDEMO', function () {
         assert.strictEqual(eror, "Epic sadface: Sorry, this user has been locked out.");
 
         let full_ss = await driver.takeScreenshot();
-        fs.writeFileSync('report_ss/login/locked out user.png', Buffer.from(full_ss, 'base64'));
+        fs.writeFileSync('report_ss/login/locked_out_user.png', Buffer.from(full_ss, 'base64'));
     });
 
     it("login without username dan password", async function () {
@@ -114,7 +116,7 @@ describe('SAUCEDEMO', function () {
         assert.strictEqual(eror, true, "Berhasil login tapi gambar tidak muncul pada halaman produk");
 
         let full_ss = await driver.takeScreenshot();
-        fs.writeFileSync('report_ss/login/problem user.png', Buffer.from(full_ss, 'base64'));
+        fs.writeFileSync('report_ss/login/problem_user.png', Buffer.from(full_ss, 'base64'));
     });
 
     it("Login with performance glitched user", async function () {
@@ -125,7 +127,7 @@ describe('SAUCEDEMO', function () {
         assert.strictEqual(isDisplayed, true, "Berhasil login tapi lambat menampilkan halaman produk");
 
         let full_ss = await driver.takeScreenshot();
-        fs.writeFileSync('report_ss/login/performance glitch user.png', Buffer.from(full_ss, 'base64'));
+        fs.writeFileSync('report_ss/login/performance_glitch_user.png', Buffer.from(full_ss, 'base64'));
     });
 
 });
