@@ -1,0 +1,145 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 0,
+    "passes": 0,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-31T17:34:36.094Z",
+    "end": "2025-10-31T17:34:39.182Z",
+    "duration": 3088,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 1,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "516ba973-9e65-429a-a23a-a1d1431c417b",
+      "title": "",
+      "fullFile": "D:\\Bootcamp QA\\selenium_Mocha\\test_case\\tc02_sort.js",
+      "file": "\\test_case\\tc02_sort.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "be0014e6-ef10-4085-9e2e-e7e98821e35e",
+          "title": "SAUCEDEMO",
+          "fullFile": "D:\\Bootcamp QA\\selenium_Mocha\\test_case\\tc02_sort.js",
+          "file": "\\test_case\\tc02_sort.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook for \"sort price low to high\"",
+              "fullTitle": "SAUCEDEMO \"before each\" hook for \"sort price low to high\"",
+              "timedOut": false,
+              "duration": 998,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// console.log('before test');\ndriver = await new Builder()\n    .forBrowser('chrome')\n    .setChromeOptions(options)\n    .build();\nawait driver.manage().window().maximize();\nawait driver.get('https://www.saucedemo.com/v1/');\nconst loginPage = new LoginPage(driver);\nawait loginPage.login(\"standard_user\", \"secret_sauce\");",
+              "err": {
+                "message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"*[id=\"user-name\"]\"}\n  (Session info: chrome=141.0.7390.123)",
+                "estack": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"*[id=\"user-name\"]\"}\n  (Session info: chrome=141.0.7390.123)\n    at Object.throwDecodedError (node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (node_modules\\selenium-webdriver\\lib\\http.js:524:13)\n    at Executor.execute (node_modules\\selenium-webdriver\\lib\\http.js:456:28)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async Driver.execute (node_modules\\selenium-webdriver\\lib\\webdriver.js:745:17)\n    at async LoginPage.login (pages\\pages_login.js:17:31)\n    at async Context.<anonymous> (test_case\\tc02_sort.js:26:9)",
+                "diff": null
+              },
+              "uuid": "a38c580c-ab32-443a-b2f0-d3513e34e9ae",
+              "parentUUID": "be0014e6-ef10-4085-9e2e-e7e98821e35e",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"SAUCEDEMO\"",
+              "fullTitle": "SAUCEDEMO \"after each\" hook in \"SAUCEDEMO\"",
+              "timedOut": false,
+              "duration": 2081,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// console.log('after test');\nawait driver.sleep(2000);\nawait driver.quit();",
+              "err": {},
+              "uuid": "a427ac05-a905-4e00-9712-beaa97a15886",
+              "parentUUID": "be0014e6-ef10-4085-9e2e-e7e98821e35e",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "sort price low to high",
+              "fullTitle": "SAUCEDEMO sort price low to high",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const sortPage = new sort(driver);\nawait sortPage.sortPriceLowToHigh();\nconst isCorrectPrice = await sortPage.assertLohi();\nassert.strictEqual(isCorrectPrice, true, \"Produk dari harga terendah sesuai\");\nlet full_ss = await driver.takeScreenshot();\nfs.writeFileSync('report_ss/sort/low to high.png', Buffer.from(full_ss, 'base64'));",
+              "err": {},
+              "uuid": "d807917e-cfed-4293-b97f-ec4f1b025ca3",
+              "parentUUID": "be0014e6-ef10-4085-9e2e-e7e98821e35e",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [
+            "d807917e-cfed-4293-b97f-ec4f1b025ca3"
+          ],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 50000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.4"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "tc02_sort",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report/report_sort",
+        "reportFilename": "tc02_sort"
+      },
+      "version": "6.3.0"
+    }
+  }
+}

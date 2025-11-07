@@ -1,0 +1,23 @@
+{
+  "name": "selenium-mocha-saucedemo",
+  "version": "1.0.0",
+  "description": "Selenium WebDriver UI Automation pada website saucedemo.com ESM",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "tc01_login": "mocha \"test_case/tc01_login.js\" --reporter mochawesome --reporter-options reportDir=mochawesome-report/report_login,reportFilename=tc01_login",
+    "tc02_sort": "mocha \"test_case/tc02_sort.js\" --reporter mochawesome --reporter-options reportDir=mochawesome-report/report_sort,reportFilename=tc02_sort",
+    "tc03_checkout": "mocha \"test_case/tc03_checkout.js\" --reporter mochawesome --reporter-options reportDir=mochawesome-report/report_checkout,reportFilename=tc03_checkout",
+    "tc_all": "mocha \"test_case/**/*.js\" --reporter mochawesome --reporter-options reportDir=mochawesome-report/report_all,reportFilename=report_all"
+  },
+  "author": "rehan",
+  "license": "ISC",
+  "dependencies": {
+    "selenium-webdriver": "^4.37.0"
+  },
+  "devDependencies": {
+    "mocha": "^11.7.4",
+    "mocha-simple-html-reporter": "^2.0.0",
+    "mochawesome": "^7.1.4"
+  }
+}
